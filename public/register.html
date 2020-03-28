@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>AAA 2020 Helfer-Registrierung</title>          
+        
+        <link rel="stylesheet" href="../css/stylesheet.css">
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+        
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    
+    </head>
+
+    
+
+
+    <body>       
+        
+        <div class="form-wrap">
+
+            <form>
+                <h1>Ich helfe beim-AAA|MMXX</h1>
+                <input id="inputName" type="text" placeholder="_Vorname" required>
+                <input id="inputNachname" type="text" placeholder="_Nachname" required>
+                <input id="inputNickname" type="text" placeholder="_Spitzname" required>
+                <input id="inputEmail" type="email" placeholder="_Email" required>
+                <input id="inputPassword" type="password" placeholder="_Passwort" required>
+                <input id="btnRegister" onClick="handleSignUp()" type="button" id="registerButton" value="Registrieren">
+                <input type="button" value="Zum Login" onClick="window.location.href = '/login.html';">
+
+            </form>
+        </div>
+
+        
+        
+        <script src="../js/fireBase.js"></script>
+        <script src="../js/register.js"></script>
+    </body>
+    
+</html>

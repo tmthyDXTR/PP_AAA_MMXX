@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>AAA 2020 Helfer-Login</title>      
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+        
+
+    </head>
+    <link rel="stylesheet" href="../css/stylesheet.css">
+
+
+    <body>
+        <div class="form-wrap">
+            <form>
+                <h1>Login AAA|MMXX</h1>
+                <input id="inputEmail" type="email" placeholder="_Email">
+                <input id="inputPassword" type="password" placeholder="_Passwort">
+                <input id="btnLogin" onClick="toggleSignIn()" type="button" value="Einloggen">     
+                <input type="button" value="Zur Registrierung" onClick="window.location.href = '/register.html';">
+        
+            </form>
+        </div>
+
+        <script src="../js/fireBase.js"></script>
+        <script src="../js/login.js"></script>
+    </body>
+
+</html>

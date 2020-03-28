@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Main Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+
+<body>
+    <div class="header">
+            </div>
+
+    <div class="form-wrap">
+        <h1>Hallo Helfer_in</h1>
+        
+        <input type="button" id="updateBtn" onClick="updateUserData()" value="Übernehmen">
+
+        <input type="button" id="logOutBtn" onClick="logOut()" value="Ausloggen">
+
+        <form>
+            <label for="spitzname">Spitzname</label>
+            <input id="spitzname" type="text" value="" name="spitzname">
+
+            <label for="vorname">Name</label>
+            <input id="vorname" type="text" value="" name="vorname">
+
+            <label for="nachname">Nachname</label>
+            <input id="nachname" type="text" value="" name="nachname">
+
+
+
+                   
+            <label for="xMalDabei">Wie oft schon mitgeholfen?</label>
+            <input id="xMalDabei" type="number" value="0" min="0" max="99" name="xMalDabei">
+           
+            <label for="behindert">
+                <input type="checkbox" id="behindert" name="behindert">_Einschränkungen/Behinderung*</label>
+            
+
+            <label for="anmerkung">Anmerkung*</label>
+            <input id="anmerkung" type="text" value="" name="anmerkung" placeholder="Tätigkeiten nicht möglich oder anderes...">
+
+            
+                <label for="essen"><select id="essen" name="essen">
+                    <option value="vegetarisch">vegetarisch</option>                    
+                    <option value="vegan">vegan</option>
+                    <option value="halal">halal</option>
+                    <option value="kosher">kosher</option>
+                    <option value="alles">alles</option>
+                    <option value="flreisch">fleisch ist mein gemüse</option>
+
+                    </select>_Ernährung</label>
+
+            <label for="ordner">
+                <input type="checkbox" id="ordner" name="ordner">_Bereitschaft Ordner</label>
+            
+
+            <label for="fahrer">
+                <input type="checkbox" id="fahrer" name="fahrer">_Bereitschaft Kurier/Fahrt</label>
+            
+            
+                <label for="tshirt"><select id="tshirt" name="tshirt">
+                    <option value="0">Ich will keins O_o</option>                    
+                    <option value="m_xxs">boy xxs</option>                    
+                    <option value="m_xs">boy xs</option>
+                    <option value="m_s">boy s</option>
+                    <option value="m_m" selected>boy m</option>
+                    <option value="m_l">boy l</option>
+                    <option value="m_xl">boy xl</option>
+                    <option value="m_xxl">boy xxl</option>
+                    <option value="g_xxs">girl xxs</option>                    
+                    <option value="g_xs">girl xs</option>
+                    <option value="g_s">girl s</option>
+                    <option value="g_m">girl m</option>
+                    <option value="g_l">girl l</option>
+                    <option value="g_xl">girl xl</option>
+                    <option value="g_xxl">girl xxl</option>
+                    </select>_TShirt</label>
+
+                <label for="pulli"><select id="pulli" name="pulli">
+                    <option value="0">Ich will keinen O_o</option>                    
+                    <option value="xxs">xxs</option>                    
+                    <option value="xs">xs</option>
+                    <option value="s">s</option>
+                    <option value="m" selected>m</option>
+                    <option value="l">l</option>
+                    <option value="xl">xl</option>
+                    <option value="xxl">xxl</option>
+                    </select>_Pulli</label>            
+
+        </form>        
+    </div>
+
+
+    <div class="form-wrap">
+        
+        <form>
+            <h2>Teams</h2>
+            <p class="team_labels"></p>
+
+            <label for="aufbauLogistik">
+                <input type="checkbox" id="aufbauLogistik" name="aufbauLogistik">_Aufbau&Logistik</label>
+            
+
+            <label for="gasWasserScheisse">
+                <input type="checkbox" id="gasWasserScheisse" name="gasWasserScheisse">_Gas_Wasser_Scheiße</label>
+            
+
+            <label for="deko">
+                <input type="checkbox" id="deko" name="deko">_Deko</label>
+            
+
+            <label for="kueche">
+                <input type="checkbox" id="kueche" name="kueche">_Küche</label>
+            
+
+            <label for="catering">
+                <input type="checkbox" id="catering" name="catering">_Catering</label>
+            
+
+            <label for="lll">
+                <input type="checkbox" id="lll" name="lll">_Lampen_Leitern&Lunten</label>
+            
+
+            <label for="akausschweifung">
+                <input type="checkbox" id="akausschweifung" name="akausschweifung">_AK_Ausschweifung</label>
+            
+
+            <label for="buero">
+                <input type="checkbox" id="buero" name="buero">_Büro</label>
+            
+
+            <label for="personalbuero">
+                <input type="checkbox" id="personalbuero" name="personalbuero">_Personalbüro</label>
+            
+
+            <label for="booking">
+                <input type="checkbox" id="booking" name="booking">_Booking</label>
+            
+
+            <label for="strom">
+                <input type="checkbox" id="strom" name="strom">_DV_Strom</label>
+            
+
+            <label for="finanzen">
+                <input type="checkbox" id="finanzen" name="finanzen">_Finanzen</label>
+
+            <label for="design">
+                <input type="checkbox" id="design" name="design">_Design</label>
+            
+
+            <label for="ausschank_1">
+                <input type="checkbox" id="ausschank_1" name="ausschank_1">_Ausschank_1</label>
+            
+
+            <label for="ausschank_2">
+                <input type="checkbox" id="ausschank_2" name="ausschank_2">_Ausschank_2</label>
+            
+
+            <label for="presse">
+                <input type="checkbox" id="presse" name="presse">_Presse&Öffentlichkeit</label>
+            
+
+            <label for="vorverkauf">
+                <input type="checkbox" id="vorverkauf" name="vorverkauf">_Vorverkauf</label>
+            
+
+            <label for="workshops">
+                <input type="checkbox" id="workshops" name="workshops">_Workshops</label>
+            
+
+            <label for="it">
+                <input type="checkbox" id="it" name="it">_IT</label>
+            
+        
+        </p>
+        </form>
+    </div> 
+
+    <div class="form-wrap">
+        
+        <form>
+            <h2>Aufbau_Woche</h2>
+<!-- 
+            <label for="immerDaAufbau">
+                <input type="checkbox" id="immerDaAufbau" name="immerDaAufbau">_Ich bin ab Montag einfach da</label>
+            
+            <p><i>* 0 bedeutet NICHT da</i><br>
+            <label for="moBegin">Montag da ab</label></p>
+            <input id="moBegin" type="number" value="0" min="0" max="24" name="moBegin">
+
+            <label for="diBegin">Dienstag da ab</label>
+            <input id="diBegin" type="number" value="0" min="0" max="24" name="diBegin">
+
+            <label for="miBegin">Mittwoch da ab</label>
+            <input id="miBegin" type="number" value="0" min="0" max="24" name="miBegin">
+
+            <label for="doBegin">Donnerstag da ab</label>
+            <input id="doBegin" type="number" value="0" min="0" max="24" name="doBegin">
+ -->
+
+        </form>
+    </div> 
+
+    <div class="form-wrap">
+        
+        <form>
+            <h2>Festival_Wochenende</h2>
+
+            <!-- <label for="immerDaFestival">
+                <input type="checkbox" id="immerDaFestival" name="immerDaFestival">_Ich bin einfach 24/7 am Start</label>
+            
+            <p><i>* 0 bedeutet NICHT da</i><br>
+            <label for="frBegin">Freitag da ab</label></p>
+            <input id="frBegin" type="number" value="0" min="0" max="24" name="frBegin">
+
+            <label for="saBegin">Samstag da ab</label>
+            <input id="saBegin" type="number" value="0" min="0" max="24" name="saBegin">
+
+            <label for="soBegin">Sonntag da ab</label>
+            <input id="soBegin" type="number" value="0" min="0" max="24" name="soBegin"> -->
+
+        </form>
+    </div> 
+
+
+    <div class="form-wrap">
+        
+        <form>
+            <h2>Abbau_Woche</h2>
+<!-- 
+            <label for="immerDaAbbau">
+                <input type="checkbox" id="immerDaAbbau" name="immerDaAbbau">_Ich bin ab Montag einfach da</label>
+            
+            <p><i>* 0 bedeutet NICHT da</i><br>
+            <label for="moBeginAbbau">Montag da ab</label></p>
+            <input id="moBeginAbbau" type="number" value="0" min="0" max="24" name="moBeginAbbau">
+
+            <label for="diBeginAbbau">Dienstag da ab</label>
+            <input id="diBeginAbbau" type="number" value="0" min="0" max="24" name="diBeginAbbau">
+
+            <label for="miBeginAbbau">Mittwoch da ab</label>
+            <input id="miBeginAbbau" type="number" value="0" min="0" max="24" name="miBeginAbbau">
+
+            <label for="doBeginAbbau">Donnerstag da ab</label>
+            <input id="doBeginAbbau" type="number" value="0" min="0" max="24" name="doBeginAbbau">
+
+            <label for="frBeginAbbau">Freitag da ab</label>
+            <input id="frBeginAbbau" type="number" value="0" min="0" max="24" name="frBeginAbbau"> -->
+
+        </form>
+    </div> 
+
+    <script src="../js/fireBase.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

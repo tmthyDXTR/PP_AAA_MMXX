@@ -1,0 +1,115 @@
+*{margin: 0; padding: 0;}
+body{
+    background: #e3fffc;
+    font-family: sans-serif;
+    padding-bottom: 125px;
+
+    }
+
+h1 {
+    color: #183d39;
+    text-align: center;
+    margin-bottom: 15px;
+}
+h2 {
+    color: #183d39;
+    text-align: top;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#logOutBtn{
+    /* display: block; */
+    max-width: 33%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ff7842;
+
+}
+#updateBtn{
+    /* display: block; */
+    max-width: 33%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logOutBtn:hover {
+    background-color: #c95628;
+}
+
+
+
+.form-wrap{ 
+    height: 100%;
+    width: auto; 
+    max-width: 400px;
+    background: #669691; 
+    padding: 40px 20px; 
+    box-sizing: border-box;
+    border-radius: 25px;
+    position: center;
+    /* left: 50%;
+    top: 50%; */
+    /* transform: translate(-50%, -50%); */
+    font-weight: normal;
+    margin: auto;
+    /* overflow: auto; */
+    margin-top: 6px;
+    margin-bottom: 6px;
+
+}
+
+label {
+    display: block;
+  padding-left: 5px;
+  text-indent: -10px;
+  
+}
+
+input{
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    padding: 6px 20px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    font-size: 14px;
+    position: relative;
+    vertical-align: bottom;
+    *overflow: hidden;
+}
+
+input[type="button"] {
+    background: #42ffea;
+    border: 0px;
+    cursor: pointer;
+}
+input[type="button"]:hover {
+    background: #31d4c2;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"] {
+    width: 80px;
+    position: center;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="checkbox"] {
+    /* display: inline; */
+    top: -1px;
+    width: 8px;
+    height: 8px;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-bottom: 4px;
+}
+
+select {
+    margin-left: 8px;
+    display: inline;
+    margin-bottom: 8px;
+}
