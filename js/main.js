@@ -50,21 +50,31 @@ function loadUserData(uid) {
     document.getElementById("spitzname").value = spitzname;
 
     document.getElementById("xMalDabei").value = xMalDabei;
-    // document.getElementById("behindert").checked = behindert;
+    document.getElementById("behindert").checked = behindert;
     document.getElementById("anmerkung").value = anmerkung;
     document.getElementById("essen").value = essen;
-    // document.getElementById("ordner").checked = ordner;
-    // document.getElementById("fahrer").checked = fahrer;
+    document.getElementById("ordner").checked = ordner;
+    document.getElementById("fahrer").checked = fahrer;
     document.getElementById("tshirt").value = tshirt;
     document.getElementById("pulli").value = pulli;
 
-    console.log("User data retrieved");
   })
+
+  // Load team data
+  firebase.database().ref('users/' + uid + '/teams').once('value').then(function (snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var teamName = childSnapshot.val();
+      document.getElementById(teamName).checked = true;
+    });
+
+  })  
+
+    console.log("User data retrieved");  
 }
 
 
 function updateUserData() {
-  const fb = firebase.database().ref('users/' + userID)
+  var fb = firebase.database().ref('users/' + userID)
   
   var email = uEmail;
   var vorname = document.getElementById("vorname").value;
@@ -72,14 +82,15 @@ function updateUserData() {
   var spitzname = document.getElementById("spitzname").value;
 
   var xMalDabei = document.getElementById("xMalDabei").value;
-  // var behindert = document.getElementById("behindert").checked;
+  var behindert = document.getElementById("behindert").checked;
   var anmerkung = document.getElementById("anmerkung").value;
   var essen = document.getElementById("essen").value;
-  // var ordner = document.getElementById("ordner").checked;
-  // var fahrer = document.getElementById("fahrer").checked;
+  var ordner = document.getElementById("ordner").checked;
+  var fahrer = document.getElementById("fahrer").checked;
   var tshirt = document.getElementById("tshirt").value;
   var pulli = document.getElementById("pulli").value;
 
+  
 
   data = {
     email,
@@ -96,7 +107,27 @@ function updateUserData() {
     pulli,
   }
   fb.update(data);
+
+
+  // Checking the team checkboxes
+  fb = firebase.database().ref('users/' + userID + '/teams')
+  fb.remove();
+  teamdata = getCheckedCheckboxesFor("team");
+  fb.update(teamdata);
+
+
   console.log("Data updated");
   alert("Deine Daten wurden aktualisiert");
 }
 
+
+function getCheckedCheckboxesFor(checkboxName) {
+  var checkboxes = document.getElementsByName(checkboxName);
+  var selected = [];
+  for (var i=0; i<checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+        selected.push(checkboxes[i].id);
+    }
+  } 
+  return selected;
+}
