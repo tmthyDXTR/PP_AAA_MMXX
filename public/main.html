@@ -104,165 +104,174 @@
         </form>        
     </div>
 
+    <button class="accordion">Teams</button>
+    <div class="accordion-content">
 
-    <div class="form-wrap">
-        
-        <form>
-            <h2>Teams</h2>
-            <p class="team_labels"></p>
-
-            <label for="aufbauLogistik">
-                <input type="checkbox" id="aufbauLogistik" name="team">_Aufbau&Logistik</label>
+        <div class="form-wrap">
             
+            <form>
 
-            <label for="gasWasserScheisse">
-                <input type="checkbox" id="gasWasserScheisse" name="team">_Gas_Wasser_Scheiße</label>
+                    <p class="team_labels"></p>
+
+                    <label for="aufbauLogistik">
+                    <input type="checkbox" id="aufbauLogistik" name="team">_Aufbau&Logistik</label>
+                
+
+                    <label for="gasWasserScheisse">
+                        <input type="checkbox" id="gasWasserScheisse" name="team">_Gas_Wasser_Scheiße</label>
+                    
+
+                    <label for="deko">
+                        <input type="checkbox" id="deko" name="team">_Deko</label>
+                    
+
+                    <label for="kueche">
+                        <input type="checkbox" id="kueche" name="team">_Küche</label>
+                    
+
+                    <label for="catering">
+                        <input type="checkbox" id="catering" name="team">_Catering</label>
+                    
+
+                    <label for="lll">
+                        <input type="checkbox" id="lll" name="team">_Lampen_Leitern&Lunten</label>
+                    
+
+                    <label for="akausschweifung">
+                        <input type="checkbox" id="akausschweifung" name="team">_AK_Ausschweifung</label>
+                    
+
+                    <label for="buero">
+                        <input type="checkbox" id="buero" name="team">_Büro</label>
+                    
+
+                    <label for="personalbuero">
+                        <input type="checkbox" id="personalbuero" name="team">_Personalbüro</label>
+                    
+
+                    <label for="booking">
+                        <input type="checkbox" id="booking" name="team">_Booking</label>
+                    
+
+                    <label for="strom">
+                        <input type="checkbox" id="strom" name="team">_DV_Strom</label>
+                    
+
+                    <label for="finanzen">
+                        <input type="checkbox" id="finanzen" name="team">_Finanzen</label>
+
+                    <label for="design">
+                        <input type="checkbox" id="design" name="team">_Design</label>
+                    
+
+                    <label for="ausschank_1">
+                        <input type="checkbox" id="ausschank_1" name="team">_Ausschank_1</label>
+                    
+
+                    <label for="ausschank_2">
+                        <input type="checkbox" id="ausschank_2" name="team">_Ausschank_2</label>
+                    
+
+                    <label for="presse">
+                        <input type="checkbox" id="presse" name="team">_Presse&Öffentlichkeit</label>
+                    
+
+                    <label for="vorverkauf">
+                        <input type="checkbox" id="vorverkauf" name="team">_Vorverkauf</label>
+                    
+
+                    <label for="workshops">
+                        <input type="checkbox" id="workshops" name="team">_Workshops</label>
+                    
+
+                    <label for="it">
+                        <input type="checkbox" id="it" name="team">_IT</label>
+                    
+                </p>            
             
+            </form>
+        </div> 
+    </div>
 
-            <label for="deko">
-                <input type="checkbox" id="deko" name="team">_Deko</label>
+    <button class="accordion">Aufbau_Woche</button>
+    <div class="accordion-content">
+
+        <div class="form-wrap">
             
+            <form>
+                <label for="immerDaAufbau">
+                    <input type="checkbox" id="immerDaAufbau" name="immerDaAufbau">_Ich bin ab Montag einfach da</label>
+                
+                <p><i>* 0 bedeutet NICHT da</i><br>
+                <label for="moBegin">Montag da ab</label></p>
+                <input id="moBegin" type="number" value="0" min="0" max="24" name="aufbauBegin">
 
-            <label for="kueche">
-                <input type="checkbox" id="kueche" name="team">_Küche</label>
+                <label for="diBegin">Dienstag da ab</label>
+                <input id="diBegin" type="number" value="0" min="0" max="24" name="aufbauBegin">
+
+                <label for="miBegin">Mittwoch da ab</label>
+                <input id="miBegin" type="number" value="0" min="0" max="24" name="aufbauBegin">
+
+                <label for="doBegin">Donnerstag da ab</label>
+                <input id="doBegin" type="number" value="0" min="0" max="24" name="aufbauBegin">
+
+
+            </form>
+        </div> 
+
+    </div>
+
+    <button class="accordion">Festival_Wochenende</button>
+    <div class="accordion-content">
+
+        <div class="form-wrap">
             
+            <form>
+                <label for="immerDaFestival">
+                    <input type="checkbox" id="immerDaFestival" name="immerDaFestival">_Ich bin einfach 24/7 am Start</label>
+                
+                <p><i>* 0 bedeutet NICHT da</i><br>
+                <label for="frBegin">Freitag da ab</label></p>
+                <input id="frBegin" type="number" value="0" min="0" max="24" name="festBegin">
 
-            <label for="catering">
-                <input type="checkbox" id="catering" name="team">_Catering</label>
+                <label for="saBegin">Samstag da ab</label>
+                <input id="saBegin" type="number" value="0" min="0" max="24" name="festBegin">
+
+                <label for="soBegin">Sonntag da ab</label>
+                <input id="soBegin" type="number" value="0" min="0" max="24" name="festBegin">
+
+            </form>
+        </div> 
+    </div>
+
+    <button class="accordion">Abbau_Woche</button>
+    <div class="accordion-content">
+        <div class="form-wrap">
             
+            <form>
+                <label for="immerDaAbbau">
+                    <input type="checkbox" id="immerDaAbbau" name="immerDaAbbau">_Ich bin ab Montag einfach da</label>
+                
+                <p><i>* 0 bedeutet NICHT da</i><br>
+                <label for="moBeginAbbau">Montag da ab</label></p>
+                <input id="moBeginAbbau" type="number" value="0" min="0" max="24" name="abbauBegin">
 
-            <label for="lll">
-                <input type="checkbox" id="lll" name="team">_Lampen_Leitern&Lunten</label>
-            
+                <label for="diBeginAbbau">Dienstag da ab</label>
+                <input id="diBeginAbbau" type="number" value="0" min="0" max="24" name="abbauBegin">
 
-            <label for="akausschweifung">
-                <input type="checkbox" id="akausschweifung" name="team">_AK_Ausschweifung</label>
-            
+                <label for="miBeginAbbau">Mittwoch da ab</label>
+                <input id="miBeginAbbau" type="number" value="0" min="0" max="24" name="abbauBegin">
 
-            <label for="buero">
-                <input type="checkbox" id="buero" name="team">_Büro</label>
-            
+                <label for="doBeginAbbau">Donnerstag da ab</label>
+                <input id="doBeginAbbau" type="number" value="0" min="0" max="24" name="abbauBegin">
 
-            <label for="personalbuero">
-                <input type="checkbox" id="personalbuero" name="team">_Personalbüro</label>
-            
+                <label for="frBeginAbbau">Freitag da ab</label>
+                <input id="frBeginAbbau" type="number" value="0" min="0" max="24" name="abbauBegin">
 
-            <label for="booking">
-                <input type="checkbox" id="booking" name="team">_Booking</label>
-            
+            </form>
+        </div> 
+    </div>
 
-            <label for="strom">
-                <input type="checkbox" id="strom" name="team">_DV_Strom</label>
-            
-
-            <label for="finanzen">
-                <input type="checkbox" id="finanzen" name="team">_Finanzen</label>
-
-            <label for="design">
-                <input type="checkbox" id="design" name="team">_Design</label>
-            
-
-            <label for="ausschank_1">
-                <input type="checkbox" id="ausschank_1" name="team">_Ausschank_1</label>
-            
-
-            <label for="ausschank_2">
-                <input type="checkbox" id="ausschank_2" name="team">_Ausschank_2</label>
-            
-
-            <label for="presse">
-                <input type="checkbox" id="presse" name="team">_Presse&Öffentlichkeit</label>
-            
-
-            <label for="vorverkauf">
-                <input type="checkbox" id="vorverkauf" name="team">_Vorverkauf</label>
-            
-
-            <label for="workshops">
-                <input type="checkbox" id="workshops" name="team">_Workshops</label>
-            
-
-            <label for="it">
-                <input type="checkbox" id="it" name="team">_IT</label>
-            
-        
-        </p>
-        </form>
-    </div> 
-
-    <div class="form-wrap">
-        
-        <form>
-            <h2>Aufbau_Woche</h2>
-<!-- 
-            <label for="immerDaAufbau">
-                <input type="checkbox" id="immerDaAufbau" name="immerDaAufbau">_Ich bin ab Montag einfach da</label>
-            
-            <p><i>* 0 bedeutet NICHT da</i><br>
-            <label for="moBegin">Montag da ab</label></p>
-            <input id="moBegin" type="number" value="0" min="0" max="24" name="moBegin">
-
-            <label for="diBegin">Dienstag da ab</label>
-            <input id="diBegin" type="number" value="0" min="0" max="24" name="diBegin">
-
-            <label for="miBegin">Mittwoch da ab</label>
-            <input id="miBegin" type="number" value="0" min="0" max="24" name="miBegin">
-
-            <label for="doBegin">Donnerstag da ab</label>
-            <input id="doBegin" type="number" value="0" min="0" max="24" name="doBegin">
- -->
-
-        </form>
-    </div> 
-
-    <div class="form-wrap">
-        
-        <form>
-            <h2>Festival_Wochenende</h2>
-
-            <!-- <label for="immerDaFestival">
-                <input type="checkbox" id="immerDaFestival" name="immerDaFestival">_Ich bin einfach 24/7 am Start</label>
-            
-            <p><i>* 0 bedeutet NICHT da</i><br>
-            <label for="frBegin">Freitag da ab</label></p>
-            <input id="frBegin" type="number" value="0" min="0" max="24" name="frBegin">
-
-            <label for="saBegin">Samstag da ab</label>
-            <input id="saBegin" type="number" value="0" min="0" max="24" name="saBegin">
-
-            <label for="soBegin">Sonntag da ab</label>
-            <input id="soBegin" type="number" value="0" min="0" max="24" name="soBegin"> -->
-
-        </form>
-    </div> 
-
-
-    <div class="form-wrap">
-        
-        <form>
-            <h2>Abbau_Woche</h2>
-<!-- 
-            <label for="immerDaAbbau">
-                <input type="checkbox" id="immerDaAbbau" name="immerDaAbbau">_Ich bin ab Montag einfach da</label>
-            
-            <p><i>* 0 bedeutet NICHT da</i><br>
-            <label for="moBeginAbbau">Montag da ab</label></p>
-            <input id="moBeginAbbau" type="number" value="0" min="0" max="24" name="moBeginAbbau">
-
-            <label for="diBeginAbbau">Dienstag da ab</label>
-            <input id="diBeginAbbau" type="number" value="0" min="0" max="24" name="diBeginAbbau">
-
-            <label for="miBeginAbbau">Mittwoch da ab</label>
-            <input id="miBeginAbbau" type="number" value="0" min="0" max="24" name="miBeginAbbau">
-
-            <label for="doBeginAbbau">Donnerstag da ab</label>
-            <input id="doBeginAbbau" type="number" value="0" min="0" max="24" name="doBeginAbbau">
-
-            <label for="frBeginAbbau">Freitag da ab</label>
-            <input id="frBeginAbbau" type="number" value="0" min="0" max="24" name="frBeginAbbau"> -->
-
-        </form>
-    </div> 
 
     <script src="../js/fireBase.js"></script>
     <script src="../js/main.js"></script>

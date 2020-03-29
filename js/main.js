@@ -66,15 +66,40 @@ function loadUserData(uid) {
       var teamName = childSnapshot.val();
       document.getElementById(teamName).checked = true;
     });
-
   })  
+
+  // Load Pre-Week Start Times
+  firebase.database().ref('users/' + uid + '/aufbau').once('value').then(function (snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var dayKey = childSnapshot.key;
+      var dayValue = childSnapshot.val();
+      document.getElementById(dayKey).value = dayValue;
+    });
+  })
+  // Load Festival-Weekend Start Times
+  firebase.database().ref('users/' + uid + '/fest').once('value').then(function (snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var dayKey = childSnapshot.key;
+      var dayValue = childSnapshot.val();
+      document.getElementById(dayKey).value = dayValue;
+    });
+  })
+
+  // Load Post-Week Start Times
+  firebase.database().ref('users/' + uid + '/abbau').once('value').then(function (snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var dayKey = childSnapshot.key;
+      var dayValue = childSnapshot.val();
+      document.getElementById(dayKey).value = dayValue;
+    });
+  })
 
     console.log("User data retrieved");  
 }
 
 
 function updateUserData() {
-  var fb = firebase.database().ref('users/' + userID)
+  var fb = firebase.database().ref('users/' + userID);
   
   var email = uEmail;
   var vorname = document.getElementById("vorname").value;
@@ -110,10 +135,23 @@ function updateUserData() {
 
 
   // Checking the team checkboxes
-  fb = firebase.database().ref('users/' + userID + '/teams')
+  fb = firebase.database().ref('users/' + userID + '/teams');
   fb.remove();
   teamdata = getCheckedCheckboxesFor("team");
   fb.update(teamdata);
+
+
+  // Checking the time boxes for Aufbau_Woche
+  fb = firebase.database().ref('users/' + userID + '/aufbau');
+  setNumbersByName(fb, "aufbauBegin");
+
+  // Checking the time boxes for Festival_Wochenende
+  fb = firebase.database().ref('users/' + userID + '/fest');
+  setNumbersByName(fb, "festBegin");
+
+  // Checking the time boxes for Abbau_Woche
+  fb = firebase.database().ref('users/' + userID + '/abbau');
+  setNumbersByName(fb, "abbauBegin");
 
 
   console.log("Data updated");
@@ -130,4 +168,36 @@ function getCheckedCheckboxesFor(checkboxName) {
     }
   } 
   return selected;
+}
+
+function setNumbersByName(ref, numberBoxName) {
+  var numBoxes = document.getElementsByName(numberBoxName);
+  for (var i=0; i<numBoxes.length; i++) {
+        // set each child (day) to the value (time) of the number box  
+        if (numBoxes[i].value.length == 0) {
+          numBoxes[i].value = 0;
+        }
+        ref.child(numBoxes[i].id).set(numBoxes[i].value);
+  } 
+}
+
+
+// Accordion Buttons
+
+var accordions = document.getElementsByClassName("accordion")
+for (var i = 0; i < accordions.length; i++) {
+  accordions[i].onclick = function() {
+    // Get the next element ("accordion-content")
+    var content = this.nextElementSibling;
+
+    if(content.style.maxHeight) {
+      // Accordion is open, we need to close it
+      content.style.maxHeight = null;
+    } else {
+      // Accordion is closed, we need to open it
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+
+  }
+  
 }
