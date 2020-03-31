@@ -75,6 +75,8 @@ function loadUserData(uid) {
       var dayValue = childSnapshot.val();
       document.getElementById(dayKey).value = dayValue;
     });
+    var immerDaAufbau = snapshot.val().immerDaAufbau;
+    document.getElementById("immerDaAufbau").checked = immerDaAufbau;
   })
   // Load Festival-Weekend Start Times
   firebase.database().ref('users/' + uid + '/fest').once('value').then(function (snapshot) {
@@ -83,6 +85,8 @@ function loadUserData(uid) {
       var dayValue = childSnapshot.val();
       document.getElementById(dayKey).value = dayValue;
     });
+    var immerDaFest = snapshot.val().immerDaFest;
+    document.getElementById("immerDaFest").checked = immerDaFest;
   })
 
   // Load Post-Week Start Times
@@ -92,11 +96,20 @@ function loadUserData(uid) {
       var dayValue = childSnapshot.val();
       document.getElementById(dayKey).value = dayValue;
     });
+    var immerDaAbbau = snapshot.val().immerDaAbbau;
+    document.getElementById("immerDaAbbau").checked = immerDaAbbau;
   })
 
-    console.log("User data retrieved");  
-}
 
+  // // // // // // // 
+  // Load user picture reference from storage
+
+
+
+
+
+  console.log("User data retrieved");  
+}
 
 function updateUserData() {
   var fb = firebase.database().ref('users/' + userID);
@@ -144,14 +157,24 @@ function updateUserData() {
   // Checking the time boxes for Aufbau_Woche
   fb = firebase.database().ref('users/' + userID + '/aufbau');
   setNumbersByName(fb, "aufbauBegin");
+  // Checking the always available checkboxes
+  var checkBox = document.getElementById("immerDaAufbau").checked;
+  fb.update( {"immerDaAufbau":checkBox});
 
   // Checking the time boxes for Festival_Wochenende
   fb = firebase.database().ref('users/' + userID + '/fest');
   setNumbersByName(fb, "festBegin");
+  // Checking the always available checkboxes
+  var checkBox = document.getElementById("immerDaFest").checked;
+  fb.update( {"immerDaFest":checkBox});
+
 
   // Checking the time boxes for Abbau_Woche
   fb = firebase.database().ref('users/' + userID + '/abbau');
   setNumbersByName(fb, "abbauBegin");
+  // Checking the always available checkboxes
+  var checkBox = document.getElementById("immerDaAbbau").checked;
+  fb.update( {"immerDaAbbau":checkBox});
 
 
   console.log("Data updated");
@@ -187,8 +210,10 @@ function setNumbersByName(ref, numberBoxName) {
 var accordions = document.getElementsByClassName("accordion")
 for (var i = 0; i < accordions.length; i++) {
   accordions[i].onclick = function() {
+    this.classList.toggle("is-open");
+
     // Get the next element ("accordion-content")
-    var content = this.nextElementSibling;
+    var content = this.nextElementSibling;  
 
     if(content.style.maxHeight) {
       // Accordion is open, we need to close it
@@ -201,3 +226,31 @@ for (var i = 0; i < accordions.length; i++) {
   }
   
 }
+
+// // // // // // // // // // 
+// File Upload Button stuff
+const realFileBtn = document.getElementById("realFileBtn");
+const fileBtn = document.getElementById("fileBtn");
+const fileText = document.getElementById("fileText");
+
+fileBtn.addEventListener("click", function() {
+  realFileBtn.click();
+});
+
+realFileBtn.addEventListener("change", function(e) {
+  if (realFileBtn.value) {
+    fileText.innerHTML = realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+    // Get file
+    var file = e.target.files[0];
+    // Create a storage ref
+    var storageRef = firebase.storage().ref("ausweisfotos/" + userID + "/" + "foto");
+    // Upload file
+    storageRef.put(file).then(function(snapshot) {
+      alert('Ausweisfoto hochgeladen');
+    }, function(error) {
+      // Handle unsuccessful upload
+      alert('Foto konnte nicht hochgeladen werden. Beachte bitte die Anforderungen.');
+      fileText.innerHTML = "Kein Bild ausgewählt. <u>(.PNG / .JPG, 5MB MAX)</u>";
+    });
+  }
+});

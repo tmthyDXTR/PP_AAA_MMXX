@@ -50,7 +50,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) { 
         var uid = user.uid;
         writeUserData(uid);
+        if (!user.emailVerified) {
         sendEmailVerification();
+        }
         firebase.auth().signOut()
             .then(function () {
                 // Sign-out successful.

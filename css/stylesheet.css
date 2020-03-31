@@ -20,60 +20,92 @@ h2 {
 
 #logOutBtn{
     /* display: block; */
-    max-width: 33%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 25%;
+    min-width: 120px;
+    float: right;
     background-color: #ff7842;
 
 }
 #updateBtn{
     /* display: block; */
-    max-width: 33%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 50%;
+    min-width: 220px;
+
 }
 
 #logOutBtn:hover {
-    background-color: #c95628;
+    background-color: #c76b46;
 }
 
+#fileBtn {
+    width: 25%;
+    min-width: 200px;
+    background-color: #42ffb7;
+}
+
+#fileBtn:hover {
+    background-color: #32bf89;
+}
+
+#fileText {
+    font-size: 12px;
+}
+
+
 button.accordion {
-    background: #77d4c9; 
+    background: #7ebdb5; 
     border-radius: 8px;
     border: none;
-    width: 80%;
+    width: 90%;
     margin: auto;
-    max-width: 400px;
+    max-width: 600px;
     display: block;
     font-family: sans-serif;
     margin-bottom: 0px;
     font-size: 24px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
     padding-top: 4px;
     cursor: pointer;
     transition: background-color 0.2s linear;
     text-align: left;
     text-indent: 10%;
-    
+    padding-right: 30px;
 }
-button.accordion:hover {
-    background-color: #549991;
+
+button.accordion:hover, button.accordion.is-open {
+    background-color: #b87ebd;
+}
+
+button.accordion:after {
+    content: '\f067';
+    font-family: "fontawesome";
+    font-size: 20px;
+    float: right;
+    padding-top: 4px;
+}
+
+button.accordion.is-open:after {
+    content: '\f068';
+    font-family: "fontawesome";
+    font-size: 20px;
+    float: right;
+    padding-top: 4px;
 }
 
 .accordion-content {
     max-height: 0px;
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 1%;
     transition: max-height 0.3s ease-in-out;
 }
 
 .form-wrap{ 
     height: 100%;
-    width: 80%; 
-    max-width: 400px;
-    background: #669691; 
+    width: 90%; 
+    max-width: 600px;
+    background: #7ebdb5; 
     padding: 40px 20px; 
     box-sizing: border-box;
     border-radius: 25px;
@@ -142,7 +174,7 @@ input[type="checkbox"] {
     margin-left: 4px;
     margin-bottom: 4px;
     cursor: pointer;
-
+    transform: scale(1.25);
 }
 
 select {

@@ -3,8 +3,9 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Main Page</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>AAA Helfer-Main Page</title>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
@@ -14,9 +15,13 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-storage.js"></script>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link rel="stylesheet" href="../css/stylesheet.css">
+
+    <!-- Awesome font -->
+    <script src="https://kit.fontawesome.com/a2e1dfc452.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -40,7 +45,9 @@
             <label for="nachname">Nachname</label>
             <input id="nachname" type="text" value="" name="nachname">
 
-
+            <input type="file" id="realFileBtn" hidden="hidden">
+            <input type="button" id="fileBtn" value="Ausweisfoto_hochladen">
+            <span id="fileText">Kein Bild ausgewählt. <u>(.PNG / .JPG, 5MB MAX)</u></span>
 
                    
             <label for="xMalDabei">Wie oft schon mitgeholfen?</label>
@@ -112,6 +119,11 @@
             <form>
 
                     <p class="team_labels"></p>
+
+                    <label for="keinTeam">
+                        <input type="checkbox" id="keinTeam" name="team">_Ich_bin_in_keinem_Team:<br>
+                        Aber_Interesse_an:</label>
+                    
 
                     <label for="aufbauLogistik">
                     <input type="checkbox" id="aufbauLogistik" name="team">_Aufbau&Logistik</label>
@@ -227,8 +239,8 @@
         <div class="form-wrap">
             
             <form>
-                <label for="immerDaFestival">
-                    <input type="checkbox" id="immerDaFestival" name="immerDaFestival">_Ich bin einfach 24/7 am Start</label>
+                <label for="immerDaFest">
+                    <input type="checkbox" id="immerDaFest" name="immerDaFest">_Ich bin einfach 24/7 am Start</label>
                 
                 <p><i>* 0 bedeutet NICHT da</i><br>
                 <label for="frBegin">Freitag da ab</label></p>
